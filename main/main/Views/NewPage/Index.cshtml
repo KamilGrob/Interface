@@ -1,0 +1,185 @@
+﻿@{
+    ViewData["Title"] = "Optimization";
+}
+
+<h1 class="text-2xl mb-3 font-bold">@ViewData["Title"]</h1>
+<a asp-action="SomeAction" asp-controller="NewPage">settingsABC</a>
+<a asp-action="SomeActionGTOA" asp-controller="NewPage">settingsGTOA</a>
+<a asp-action="SomeActionGradient" asp-controller="NewPage">settingsGradient</a>
+<div data-badges class="flex flex-wrap gap-1">
+    <div class="badge badge-info gap-2">
+        <svg data-badge-delete="ABC" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="inline-block w-4 h-4 stroke-current"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+        ABC
+    </div>
+</div>
+<div class="flex justify-between mb-2">
+    <label for="optimizationAlgorithm" class="flex items-center">Optimization Algorithm:</label>
+    <select id="selectedAlgorithms" class="select select-bordered w-full max-w-xs" data-algorithms data-objfun>
+        <option value="ABC" selected>ABC</option>
+        <option value="Gradient">Gradient</option>
+        <option value="GTOA">GTOA</option>
+    </select>
+</div>
+
+<div>
+    <form id="abcForm" action="/NewPage/RunOptimization" method="post" data-form="ABC">
+        <div class="flex justify-between mb-2">
+            <label class="flex items-center">Dimensions:</label>
+            <input type="text" id="dimensions" name="dimensions" required placeholder="Type here" class="input input-bordered w-full max-w-xs" />
+        </div>
+        <div class="flex justify-between mb-2">
+            <label class="flex items-center">generations:</label>
+            <input type="text" id="generations" name="generations" required placeholder="Type here" class="input input-bordered w-full max-w-xs" />
+        </div>
+
+        <div class="flex justify-between mb-2">
+            <label for="objectiveFunction" class="flex items-center">Objective Function:</label>
+            <select id="objectiveFunction" class="select select-bordered w-full max-w-xs">
+                <option selected value="SphereFunction">Sphere Function</option>
+                <option value="RosenbrockFunction">Rosenbrock Function</option>
+                <option value="RastriginFunction">Rastrigin Function</option>
+                <option value="tsfde_inv">tsfde_inv</option>
+                <option value="przyklad">przyklad</option>
+            </select>
+        </div>
+
+
+        <button type="submit" id="abcSubmitButton" class="btn mb-3">Run Optimization</button>
+    </form>
+
+</div>
+
+@* @using (Html.BeginForm("RunOptimization", "Home", FormMethod.Post, new { id = "gradientForm" }))
+{
+    <div>
+        @foreach (var paramInfo in ViewBag.ParamsInfoList[1])
+        {
+
+            <div>
+                <label>@paramInfo.Name:</label>
+                <input type="text" id="@paramInfo.Name" name="@paramInfo.Name" />
+            </div>
+        }
+    </div>
+
+    <label for="objectiveFunction">Objective Function:</label>
+    <select id="objectiveFunction">
+        <option value="SphereFunction">Sphere Function</option>
+        <option value="RosenbrockFunction">Rosenbrock Function</option>
+        <option value="RastriginFunction">Rastrigin Function</option>
+    </select>
+
+    <br>
+
+    <button type="submit" id="gradientSubmitButton">Run Gradient Optimization</button>
+} *@
+
+<div id="resultContainer">
+</div>
+<div id="resultsContainer"></div>
+
+@section scripts {
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script>
+        const algorithms = document.querySelector('[data-algorithms]');
+        const forms = document.querySelectorAll("[data-form]");
+
+        // algorithms.addEventListener('change', (e) => {
+        //     const selectedAlgorithm = e.target.value;
+        //     const selectedForm = document.querySelector([data-form="${selectedAlgorithm}"]);
+
+        //     forms.forEach(el => {
+        //         if (!el.classList.contains('hidden')) {
+        //             el.classList.add('hidden')
+        //         }
+        //     });
+
+        //     selectedForm.classList.remove("hidden")
+
+        // })
+
+        const badgesDom = document.querySelector('[data-badges]');
+        const badges = ['ABC'];
+        const objFunArr = document.querySelectorAll('[data-objfun]');
+
+        const handleDelete = (e) => {
+            console.log(badges)
+            badges.splice(badges.indexOf(e.target.dataset.badgeDelete), 1);
+            console.log(badges)
+
+            badgesDom.innerHTML = `
+                                                ${badges.map(badge => `
+                                                    <div class="badge badge-info gap-2">
+                                                        <svg data-badge-delete="${badge}" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="inline-block w-4 h-4 stroke-current"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                                                        ${badge}
+                                                    </div>
+                                                `).join('')}
+                                            `
+
+        }
+        document.querySelectorAll('[data-badge-delete]').forEach(deleteEl => deleteEl.addEventListener('click', handleDelete))
+        objFunArr.forEach(objFun => objFun.addEventListener('change', e => {
+
+            if (badges.indexOf(e.target.value) === -1) {
+                badges.push(e.target.value)
+            }
+
+            badgesDom.innerHTML = `
+                                ${badges.map(badge => `
+                                    <div class="badge badge-info gap-2">
+                                        <svg data-badge-delete="${badge}" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="inline-block w-4 h-4 stroke-current"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                                        ${badge}
+                                    </div>
+                                `).join('')}
+                            `
+
+            document.querySelectorAll('[data-badge-delete]').forEach(deleteEl => deleteEl.addEventListener('click', handleDelete))
+        }))
+
+        $(document).ready(function () {
+            const html = document.querySelector("html").dataset.theme = 'light'
+            // Obsługa formularza ABC
+            $("#abcForm").submit(function (event) {
+                event.preventDefault();
+
+                var optimizationParameters = {
+                    parameters: [],
+                    objectiveFunction: [],
+                    selectedAlgorithms: badges
+                };
+
+                optimizationParameters.objectiveFunction.push($("#objectiveFunction").val());
+                optimizationParameters.parameters.push(parseFloat($("#dimensions").val()));
+                optimizationParameters.parameters.push(parseFloat($("#generations").val()));
+                sendOptimizationRequest(optimizationParameters);
+            });
+
+
+            function sendOptimizationRequest(parameters) {
+                $.ajax({
+                    url: "/NewPage/RunOptimization",
+                    type: "POST",
+                    contentType: "application/json",
+                    data: JSON.stringify(parameters),
+                    success: function (data) {
+                        // Usuń poprzednie wyniki
+                        $("#resultsContainer").empty();
+                        // Obsłuż wyniki dla każdego algorytmu
+
+                        data.forEach(function (result) {
+                            var resultElement = $("<div>");
+                            resultElement.append("<p>Algorithm: " + result.algorithm + "</p>");
+                            resultElement.append("<p>Best Fitness: " + result.fitness + "</p>");
+                            resultElement.append("<p>Best Solution: " + result.solution.join(", ") + "</p>");
+
+                            $("#resultsContainer").append(resultElement);
+                        });
+                    },
+                    error: function (error) {
+                        console.log(error);
+                    }
+                });
+            }
+        });
+    </script>
+}

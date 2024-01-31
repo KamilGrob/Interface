@@ -1,0 +1,15 @@
+D:\Kod\c#\interfejs\snake\snake\bin\Debug\net6.0\snake.deps.json
+D:\Kod\c#\interfejs\snake\snake\bin\Debug\net6.0\snake.dll
+D:\Kod\c#\interfejs\snake\snake\bin\Debug\net6.0\snake.pdb
+D:\Kod\c#\interfejs\snake\snake\bin\Debug\net6.0\funkcel.dll
+D:\Kod\c#\interfejs\snake\snake\bin\Debug\net6.0\funkcel.pdb
+D:\Kod\c#\interfejs\snake\snake\obj\Debug\net6.0\snake.csproj.AssemblyReference.cache
+D:\Kod\c#\interfejs\snake\snake\obj\Debug\net6.0\snake.GeneratedMSBuildEditorConfig.editorconfig
+D:\Kod\c#\interfejs\snake\snake\obj\Debug\net6.0\snake.AssemblyInfoInputs.cache
+D:\Kod\c#\interfejs\snake\snake\obj\Debug\net6.0\snake.AssemblyInfo.cs
+D:\Kod\c#\interfejs\snake\snake\obj\Debug\net6.0\snake.csproj.CoreCompileInputs.cache
+D:\Kod\c#\interfejs\snake\snake\obj\Debug\net6.0\snake.csproj.CopyComplete
+D:\Kod\c#\interfejs\snake\snake\obj\Debug\net6.0\snake.dll
+D:\Kod\c#\interfejs\snake\snake\obj\Debug\net6.0\refint\snake.dll
+D:\Kod\c#\interfejs\snake\snake\obj\Debug\net6.0\snake.pdb
+D:\Kod\c#\interfejs\snake\snake\obj\Debug\net6.0\ref\snake.dll

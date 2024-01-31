@@ -1,0 +1,29 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"]</title>
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.5.0/dist/full.min.css" rel="stylesheet" type="text/css" />
+
+</head>
+<body class="p-4">
+    <nav class="navbar bg-base-100 shadow-xl">
+        <div class="m-auto">
+            <ul class="menu menu-horizontal px-1 rounded-box">
+                
+                <li><a asp-action="Index" asp-controller="Home">Single optimalization</a></li>
+                <li><a asp-action="SomeAction" asp-controller="Home">Multi optimalization</a></li>
+            </ul>
+        </div>
+    </nav>
+    <main role="main" class="grid min-h-svh m-auto content-center">
+        @RenderBody()
+    </main>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

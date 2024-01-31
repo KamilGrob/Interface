@@ -1,0 +1,11 @@
+D:\Kod\c#\interfejs\funkcel\funkcel\bin\Debug\net6.0\funkcel.deps.json
+D:\Kod\c#\interfejs\funkcel\funkcel\bin\Debug\net6.0\funkcel.dll
+D:\Kod\c#\interfejs\funkcel\funkcel\bin\Debug\net6.0\funkcel.pdb
+D:\Kod\c#\interfejs\funkcel\funkcel\obj\Debug\net6.0\funkcel.GeneratedMSBuildEditorConfig.editorconfig
+D:\Kod\c#\interfejs\funkcel\funkcel\obj\Debug\net6.0\funkcel.AssemblyInfoInputs.cache
+D:\Kod\c#\interfejs\funkcel\funkcel\obj\Debug\net6.0\funkcel.AssemblyInfo.cs
+D:\Kod\c#\interfejs\funkcel\funkcel\obj\Debug\net6.0\funkcel.csproj.CoreCompileInputs.cache
+D:\Kod\c#\interfejs\funkcel\funkcel\obj\Debug\net6.0\funkcel.dll
+D:\Kod\c#\interfejs\funkcel\funkcel\obj\Debug\net6.0\refint\funkcel.dll
+D:\Kod\c#\interfejs\funkcel\funkcel\obj\Debug\net6.0\funkcel.pdb
+D:\Kod\c#\interfejs\funkcel\funkcel\obj\Debug\net6.0\ref\funkcel.dll

@@ -1,0 +1,11 @@
+D:\Kod\c#\interfejs\PrzykladA\PrzykladA\bin\Debug\net6.0\PrzykladA.deps.json
+D:\Kod\c#\interfejs\PrzykladA\PrzykladA\bin\Debug\net6.0\PrzykladA.dll
+D:\Kod\c#\interfejs\PrzykladA\PrzykladA\bin\Debug\net6.0\PrzykladA.pdb
+D:\Kod\c#\interfejs\PrzykladA\PrzykladA\obj\Debug\net6.0\PrzykladA.GeneratedMSBuildEditorConfig.editorconfig
+D:\Kod\c#\interfejs\PrzykladA\PrzykladA\obj\Debug\net6.0\PrzykladA.AssemblyInfoInputs.cache
+D:\Kod\c#\interfejs\PrzykladA\PrzykladA\obj\Debug\net6.0\PrzykladA.AssemblyInfo.cs
+D:\Kod\c#\interfejs\PrzykladA\PrzykladA\obj\Debug\net6.0\PrzykladA.csproj.CoreCompileInputs.cache
+D:\Kod\c#\interfejs\PrzykladA\PrzykladA\obj\Debug\net6.0\PrzykladA.dll
+D:\Kod\c#\interfejs\PrzykladA\PrzykladA\obj\Debug\net6.0\refint\PrzykladA.dll
+D:\Kod\c#\interfejs\PrzykladA\PrzykladA\obj\Debug\net6.0\PrzykladA.pdb
+D:\Kod\c#\interfejs\PrzykladA\PrzykladA\obj\Debug\net6.0\ref\PrzykladA.dll

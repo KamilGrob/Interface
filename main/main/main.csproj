@@ -1,0 +1,36 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="itext7" Version="8.0.2" />
+    <PackageReference Include="itext7.bouncy-castle-adapter" Version="8.0.2" />
+    <PackageReference Include="iTextSharp" Version="5.5.13.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="abc">
+      <HintPath>..\..\abc\abc\bin\Debug\net6.0\abc.dll</HintPath>
+    </Reference>
+    <Reference Include="funkcel">
+      <HintPath>..\..\funkcel\funkcel\bin\Debug\net6.0\funkcel.dll</HintPath>
+    </Reference>
+    <Reference Include="gradient">
+      <HintPath>..\..\gradient\gradient\bin\Debug\net6.0\gradient.dll</HintPath>
+    </Reference>
+    <Reference Include="gtoa">
+      <HintPath>..\..\gtoa\gtoa\bin\Debug\net6.0\gtoa.dll</HintPath>
+    </Reference>
+    <Reference Include="PrzykladA">
+      <HintPath>..\..\PrzykladA\PrzykladA\bin\Debug\net6.0\PrzykladA.dll</HintPath>
+    </Reference>
+    <Reference Include="przykladB">
+      <HintPath>..\..\przykladB\przykladB\bin\Debug\net6.0\przykladB.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+</Project>
